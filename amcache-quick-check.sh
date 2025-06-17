@@ -70,7 +70,7 @@ if [ ! -f "$AMCACHE_FILE" ]; then
 fi
 
 if [[ "$SCOPE" == "users" ]]; then
-    # Cerca solo file nelle cartelle "users"
+    # Search only in "users" folder
     grep -i '\.exe' "$AMCACHE_FILE" | awk -F'\t' '
     NR==1 {next}
     tolower($3) ~ /microsoft/ {next}
@@ -88,7 +88,7 @@ if [[ "$SCOPE" == "users" ]]; then
     BEGIN { print "[" }
     ' > amcache_hashes.json
 else
-    # Cerca in tutto il sistema
+    # Search in whole system
     grep -i '\.exe' "$AMCACHE_FILE" | awk -F'\t' '
     NR==1 {next}
     tolower($3) ~ /microsoft/ {next}
@@ -139,7 +139,6 @@ if [[ -n "$API_KEY" ]]; then
     done
 else
     jq -r '.[] | [.path, .sha1, .lastModify] | @tsv' amcache_hashes.json |
-    # jq -r '.[] | .path' amcache_hashes.json |
     while IFS=$'\t' read -r path sha1 lastModify; do
         echo -e "${YELLOW}[!] Warning: The file may be suspicious due to an ambiguous VERSIONINFO block.${NC}"
         echo -e "${CYAN}[*] File:${NC} $path"
