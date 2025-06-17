@@ -82,7 +82,7 @@ For each file found, the script displays:
 
 ## Screenshot
 
-![Screenshot of amcache-quick-check.sh output](.img/amchache1.png)
+![Screenshot of amcache-quick-check.sh output](.img/amcache1.png)
 
 ---
 
