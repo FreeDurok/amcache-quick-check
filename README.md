@@ -59,16 +59,18 @@ vol -f memdump.mem windows.registry.amcache.Amcache > amcache.txt
 ## Usage
 
 ```sh
-./check_amcache_vt.sh [--scope users|system] <amcache_file.txt>
+./check_amcache_vt.sh [--scope users|system] [--json-output yes|no] <amcache_file.txt>
 ```
 
 - `--scope users` : analyzes only `.exe` files in user folders (`C:\Users\...`)
 - `--scope system` (default): analyzes all `.exe` files present in the Amcache file
+- `--json-output yes` : outputs the results in JSON format
+- `--json-output no` (default): outputs the results in a human-readable format
 
 Example:
 
 ```sh
-./check_amcache_vt.sh --scope users amcache.txt
+./check_amcache_vt.sh --scope users --json-output yes amcache.txt
 ```
 ## Output
 
@@ -77,6 +79,10 @@ For each file found, the script displays:
 - The file path
 - The SHA1 hash
 - The VirusTotal analysis results (Harmless, Suspicious, Malicious, Undetected)
+
+## Screenshot
+
+![Screenshot of amcache-quick-check.sh output](.img/amchache1.png)
 
 ---
 
