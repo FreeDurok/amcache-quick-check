@@ -59,7 +59,7 @@ vol -f memdump.mem windows.registry.amcache.Amcache > amcache.txt
 ## Usage
 
 ```sh
-./check_amcache_vt.sh [--scope users|system] [--json-output yes|no] <amcache_file.txt>
+./amcache-quick-check.sh [--scope users|system] [--json-output yes|no] <amcache_file.txt>
 ```
 
 - `--scope users` : analyzes only `.exe` files in user folders (`C:\Users\...`)
@@ -70,7 +70,7 @@ vol -f memdump.mem windows.registry.amcache.Amcache > amcache.txt
 Example:
 
 ```sh
-./check_amcache_vt.sh --scope users --json-output yes amcache.txt
+./amcache-quick-check.sh --scope users --json-output yes amcache.txt
 ```
 ## Output
 
